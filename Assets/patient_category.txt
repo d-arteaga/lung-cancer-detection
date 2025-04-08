@@ -1,0 +1,78 @@
+Patient Categories:
+Malignant Patients: [1, 2, 7, 13, 15, 23, 29, 47, 52, 57, 58, 59, 60, 66, 976, 1007]
+Benign Patients: [4, 9, 21, 22, 25, 34, 39, 987, 996, 997, 1009, 1012]
+Uncertain Patients: [3, 5, 6, 8, 10, 11, 12, 14, 16, 17, 18, 19, 20, 24, 26, 27, 
+28, 30, 31, 32, 33, 35, 36, 37, 38, 40, 41, 42, 43, 44, 45, 46, 48, 49, 50, 51, 53, 
+54, 55, 56, 61, 62, 63, 64, 65, 67, 68, 70, 973, 974, 977, 978, 979, 980, 981, 
+982, 983, 984, 985, 986, 989, 990, 991, 992, 994, 995, 998, 999, 1000, 1001, 
+1002, 1003, 1004, 1005, 1006, 1010, 1011]
+--------------------------------------
+  Patient 1: malignant
+  Patient 2: malignant
+  Patient 3: uncertain
+  Patient 4: benign
+  Patient 5: uncertain
+  Patient 6: uncertain
+  Patient 7: malignant
+  Patient 8: uncertain
+  Patient 9: benign
+  Patient 10: uncertain
+  Patient 11: uncertain
+  Patient 12: uncertain
+  Patient 13: malignant
+  Patient 14: uncertain
+  Patient 15: malignant
+  Patient 16: uncertain
+  Patient 17: uncertain
+  Patient 18: uncertain
+  Patient 19: uncertain
+  Patient 20: uncertain
+  Patient 21: benign
+  Patient 22: benign
+  Patient 23: malignant
+  Patient 24: uncertain
+  Patient 25: benign
+  Patient 26: uncertain
+  Patient 27: uncertain
+  Patient 28: uncertain
+  Patient 29: malignant
+  Patient 30: uncertain
+  Patient 31: uncertain
+  Patient 32: uncertain
+  Patient 33: uncertain
+  Patient 34: benign
+  Patient 35: uncertain
+  Patient 36: uncertain
+  Patient 37: uncertain
+  Patient 38: uncertain
+  Patient 39: benign
+  Patient 40: uncertain
+  Patient 41: uncertain
+  Patient 42: uncertain
+  Patient 43: uncertain
+  Patient 44: uncertain
+  Patient 45: uncertain
+  Patient 46: uncertain
+  Patient 47: malignant
+  Patient 48: uncertain
+  Patient 49: uncertain
+  Patient 50: uncertain
+  Patient 51: uncertain
+  Patient 52: malignant
+  Patient 53: uncertain
+  Patient 54: uncertain
+  Patient 55: uncertain
+  Patient 56: uncertain
+  Patient 57: malignant
+  Patient 58: malignant
+  Patient 59: malignant
+  Patient 60: malignant
+  Patient 61: uncertain
+  Patient 62: uncertain
+  Patient 63: uncertain
+  Patient 64: uncertain
+  Patient 65: uncertain
+  Patient 66: malignant
+  Patient 67: uncertain
+  Patient 68: uncertain
+  Patient 70: uncertain
