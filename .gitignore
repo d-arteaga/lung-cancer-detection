@@ -1,3 +1,9 @@
 Data
 
+Notebooks/coordinates.ipynb
+
 Notebooks/output
+
+Notebooks/preprocessed
+
+Notebooks/preprocessed/X_train.npy

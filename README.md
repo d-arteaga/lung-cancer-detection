@@ -1,12 +1,14 @@
 # Lung Cancer Detection Project
 
-This project focuses on analyzing lung nodule malignancy and ROI coordinates using the LIDC-IDRI dataset of CT scan DICOM images and XML radiologist annotations. The primary goal is to categorize patients into benign, malignant, or uncertain categories based on their mean malignancy scores derived from XML annotations, extract the nodule location from the ROI coordinates, and train a lung cancer detection model.
+This project focuses on analyzing lung nodule malignancy and preprocessing extracted nodule images using the LIDC-IDRI dataset of CT scan DICOM images and XML radiologist annotations. The primary goal is to categorize patients into benign, malignant, or uncertain categories based on their mean malignancy scores, extract nodule images, and preprocess them for training a lung cancer detection model.
+
+---
 
 ## Notebooks Overview
 
 ### `malignancy.ipynb`
 
-The `malignancy.ipynb` notebook is the core of this project. It processes XML annotations from the LIDC-IDRI dataset to extract malignancy scores for lung nodules and categorizes patients based on their mean malignancy scores.
+The `malignancy.ipynb` notebook processes XML annotations from the LIDC-IDRI dataset to extract malignancy scores for lung nodules and categorizes patients based on their mean malignancy scores.
 
 #### Key Features:
 1. **XML Parsing**:
@@ -26,9 +28,6 @@ The `malignancy.ipynb` notebook is the core of this project. It processes XML an
    - Outputs categorized patient data to `malignancy_label.csv`.
    - Saves detailed malignancy scores to `malignancy_scores.csv`.
 
-5. **Visualization**:
-   - Provides a summary of categorized patients and their malignancy scores.
-
 #### Outputs:
 - **`malignancy_label.csv`**:
   - Contains patient IDs and their corresponding categories (benign, malignant, or uncertain).
@@ -40,24 +39,11 @@ The `malignancy.ipynb` notebook is the core of this project. It processes XML an
 2. Open the `malignancy.ipynb` notebook in Jupyter Notebook or JupyterLab.
 3. Execute the cells to process the dataset and generate outputs.
 
-#### Example Output:
-```plaintext
-Mean Malignancy Scores for All Patients:
-  Patient 1: Mean Malignancy Score = 3.50
-  Patient 2: Mean Malignancy Score = 1.75
-  Patient 3: No malignancy scores available.
-
-Patient Categories:
-  Patient 1: Uncertain
-  Patient 2: Benign
-  Patient 3: Uncertain
-```
-
 ---
 
-### `coordinates.ipynb`
+### `extract_nodule_images.ipynb`
 
-The `coordinates.ipynb` notebook is used to identify lung nodule regions by extracting ROI (Region of Interest) coordinates from XML radiologist annotations and relating them to the corresponding patient DICOM images using DICOM metadata. The notebook outputs cropped sections of the lung nodules, which can be used as input for future modeling tasks.
+The `extract_nodule_images.ipynb` notebook extracts lung nodule images from the LIDC-IDRI dataset based on the ROI (Region of Interest) coordinates provided in the XML annotations.
 
 #### Key Features:
 1. **XML Parsing**:
@@ -92,17 +78,54 @@ The `coordinates.ipynb` notebook is used to identify lung nodule regions by extr
 
 #### How to Run:
 1. Ensure the LIDC-IDRI dataset is placed in the `Data/LIDC-IDRI/` directory.
-2. Open the `coordinates.ipynb` notebook in Jupyter Notebook or JupyterLab.
+2. Open the `extract_nodule_images.ipynb` notebook in Jupyter Notebook or JupyterLab.
 3. Execute the cells to process the dataset and generate cropped lung nodule images.
 
-#### Example Output:
-```plaintext
-Saved cropped image for Patient 4, Nodule 1, SOP_UID 1.2.840.113619...
-Saved cropped image for Patient 4, Nodule 2, SOP_UID 1.2.840.113619...
-Saved cropped image for Patient 9, Nodule 1, SOP_UID 1.2.840.113619...
-```
+---
+
+### `preprocess.ipynb`
+
+The `preprocess.ipynb` notebook preprocesses the extracted lung nodule images to prepare them for training a Convolutional Neural Network (CNN).
+
+#### Key Features:
+1. **Image Resizing**:
+   - Resizes all images to a consistent dimension (e.g., 128x128), necessary for CNNs.
+
+2. **Normalization**:
+   - Normalizes pixel values to the range [0, 1] for faster convergence during training.
+
+3. **Data Augmentation**:
+   - Augments the dataset using techniques like rotation, flipping, and zooming to increase diversity and reduce overfitting.
+
+4. **Class Balancing**:
+   - Balances the dataset by augmenting or downsampling the minority class.
+
+5. **Dataset Splitting**:
+   - Splits the dataset into training, validation, and test sets.
+
+6. **Saving Preprocessed Data**:
+   - Saves the preprocessed datasets (`X_train`, `y_train`, `X_val`, `y_val`, `X_test`, `y_test`) into a `preprocessed/` folder for future use.
+
+#### Outputs:
+- Preprocessed datasets saved in the `preprocessed/` directory:
+  - Example files:
+    ```
+    preprocessed/
+      ├── X_train.npy
+      ├── y_train.npy
+      ├── X_val.npy
+      ├── y_val.npy
+      ├── X_test.npy
+      └── y_test.npy
+    ```
+
+#### How to Run:
+1. Ensure the cropped nodule images are saved in the `output/` directory.
+2. Open the `preprocess.ipynb` notebook in Jupyter Notebook or JupyterLab.
+3. Execute the cells to preprocess the images and save the datasets.
 
 ---
 
 ## Future Work
-The cropped lung nodule images generated by `coordinates.ipynb` can be used as input for training machine learning or deep learning models (e.g., CNNs) to classify nodules as benign or malignant. The outputs from `malignancy.ipynb` can also be used to label the data for supervised learning.
+
+The preprocessed datasets generated by `preprocess.ipynb` can be used to train machine learning or deep learning models (e.g., CNNs) to classify nodules as benign or malignant. The malignancy scores and categories from `malignancy.ipynb` can also be used to label the data for supervised learning.
