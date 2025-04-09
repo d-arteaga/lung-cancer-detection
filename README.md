@@ -2,6 +2,8 @@
 
 This project focuses on analyzing lung nodule malignancy and preprocessing extracted nodule images using the LIDC-IDRI dataset of CT scan DICOM images and XML radiologist annotations. The primary goal is to categorize patients into benign, malignant, or uncertain categories based on their mean malignancy scores, extract nodule images, and preprocess them for training a lung cancer detection model.
 
+Link to dataset: https://www.cancerimagingarchive.net/collection/lidc-idri/ 
+
 ---
 
 ## Notebooks Overview
