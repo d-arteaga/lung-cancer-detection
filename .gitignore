@@ -7,3 +7,5 @@ Notebooks/output
 Notebooks/preprocessed
 
 Notebooks/preprocessed/X_train.npy
+
+Notebooks/lung_cancer_detection_model.ipynb
