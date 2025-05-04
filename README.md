@@ -2,13 +2,13 @@
 
 This project focuses on analyzing lung nodule malignancy and preprocessing extracted nodule images using the LIDC-IDRI dataset of CT scan DICOM images and XML radiologist annotations. The primary goal is to categorize patients into benign, malignant, or uncertain categories based on their mean malignancy scores, extract nodule images, preprocess them, and train a lung cancer detection model using a Convolutional Neural Network (CNN).
 
-Link to dataset: https://www.cancerimagingarchive.net/collection/lidc-idri/
+Link to dataset: [LIDC-IDRI Dataset](https://www.cancerimagingarchive.net/collection/lidc-idri/)
 
 ---
 
 ## Notebooks Overview
 
-### `malignancy.ipynb`
+### [`malignancy.ipynb`](./Notebooks/malignancy.ipynb)
 
 The `malignancy.ipynb` notebook processes XML annotations from the LIDC-IDRI dataset to extract malignancy scores for lung nodules and categorizes patients based on their mean malignancy scores.
 
@@ -36,14 +36,9 @@ The `malignancy.ipynb` notebook processes XML annotations from the LIDC-IDRI dat
 - **`malignancy_scores.csv`**:
   - Contains detailed malignancy scores for each DICOM image.
 
-#### How to Run:
-1. Ensure the LIDC-IDRI dataset is placed in the `Data/LIDC-IDRI/` directory.
-2. Open the `malignancy.ipynb` notebook in Jupyter Notebook or JupyterLab.
-3. Execute the cells to process the dataset and generate outputs.
-
 ---
 
-### `extract_nodule_images.ipynb`
+### [`extract_nodule_images.ipynb`](./Notebooks/extract_nodule_images.ipynb)
 
 The `extract_nodule_images.ipynb` notebook extracts lung nodule images from the LIDC-IDRI dataset based on the ROI (Region of Interest) coordinates provided in the XML annotations.
 
@@ -63,29 +58,9 @@ The `extract_nodule_images.ipynb` notebook extracts lung nodule images from the 
 4. **Output**:
    - Saves the cropped lung nodule images to an output directory, organized by patient ID and nodule ID.
 
-#### Outputs:
-- Cropped lung nodule images saved in the `output/` directory:
-  - Example structure:
-    ```
-    output/
-      ├── benign_patient_4/
-      │   ├── nodule_1_SOPUID.png
-      │   ├── nodule_2_SOPUID.png
-      │   └── ...
-      └── malignant_patient_1/
-          ├── nodule_1_SOPUID.png
-          ├── nodule_3_SOPUID.png
-          └── ...
-    ```
-
-#### How to Run:
-1. Ensure the LIDC-IDRI dataset is placed in the `Data/LIDC-IDRI/` directory.
-2. Open the `extract_nodule_images.ipynb` notebook in Jupyter Notebook or JupyterLab.
-3. Execute the cells to process the dataset and generate cropped lung nodule images.
-
 ---
 
-### `preprocess.ipynb`
+### [`preprocess.ipynb`](./Notebooks/preprocess.ipynb)
 
 The `preprocess.ipynb` notebook preprocesses the extracted lung nodule images to prepare them for training a Convolutional Neural Network (CNN).
 
@@ -108,27 +83,9 @@ The `preprocess.ipynb` notebook preprocesses the extracted lung nodule images to
 6. **Saving Preprocessed Data**:
    - Saves the preprocessed datasets (`X_train`, `y_train`, `X_val`, `y_val`, `X_test`, `y_test`) into a `preprocessed/` folder for future use.
 
-#### Outputs:
-- Preprocessed datasets saved in the `preprocessed/` directory:
-  - Example files:
-    ```
-    preprocessed/
-      ├── X_train.npy
-      ├── y_train.npy
-      ├── X_val.npy
-      ├── y_val.npy
-      ├── X_test.npy
-      └── y_test.npy
-    ```
-
-#### How to Run:
-1. Ensure the cropped nodule images are saved in the `output/` directory.
-2. Open the `preprocess.ipynb` notebook in Jupyter Notebook or JupyterLab.
-3. Execute the cells to preprocess the images and save the datasets.
-
 ---
 
-### `lung_cancer_detection_model.ipynb`
+### [`lung_cancer_detection_model.ipynb`](./Notebooks/lung_cancer_detection_model.ipynb)
 
 The `lung_cancer_detection_model.ipynb` notebook implements the CNN model for lung cancer detection using the preprocessed datasets.
 
@@ -159,15 +116,11 @@ The `lung_cancer_detection_model.ipynb` notebook implements the CNN model for lu
    - Calculates precision, recall, and F1-score for each class.
    - Generates and visualizes a confusion matrix.
 
-#### Outputs:
-- Model evaluation metrics (accuracy, loss, recall).
-- Training and validation performance plots.
-- Confusion matrix visualization.
+---
 
-#### How to Run:
-1. Ensure the preprocessed datasets are saved in the `preprocessed/` directory.
-2. Open the `lung_cancer_detection_model.ipynb` notebook in Jupyter Notebook or JupyterLab.
-3. Execute the cells to train, evaluate, and visualize the CNN model's performance.
+### [`pylidc.ipynb`](./Notebooks/pylidc.ipynb)
+
+The `pylidc.ipynb` notebook explores the *pylidc* library, a Python library designed specifically for the LIDC-IDRI dataset. After experimenting with the library, it was deemed unnecessary for the project.
 
 ---
 
